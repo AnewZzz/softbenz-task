@@ -1,0 +1,10 @@
+export './carousel_widget.dart';
+export './formulas_widgets.dart';
+export './specification_widget.dart';
+export './variants_widgets.dart';
+export './vendor_information_widgets.dart';
+export './review_widgets.dart';
+export './discount_percentage.dart';
+export './ratinganfreview_widgets.dart';
+export './bottom_navbar.dart';
+export './review_tab_widgets.dart';
