@@ -8,3 +8,4 @@ export './discount_percentage.dart';
 export './ratinganfreview_widgets.dart';
 export './bottom_navbar.dart';
 export './review_tab_widgets.dart';
+export './related_widgets.dart';

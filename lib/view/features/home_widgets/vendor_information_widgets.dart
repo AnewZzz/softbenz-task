@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 import '../../../view_model/utils/export_utls.dart';
 
 class VendorInformationWidget extends StatelessWidget {
@@ -82,7 +83,9 @@ class VendorInformationWidget extends StatelessWidget {
                   ),
                   SizedBox(width: sizewidth(context) * 0.02),
                   TextButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      _showBottomSheet(context);
+                    },
                     icon: Icon(
                       Icons.message,
                       color: AppColor.white,
@@ -112,6 +115,68 @@ class VendorInformationWidget extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  void _showBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20.0)),
+      ),
+      builder: (context) {
+        return Padding(
+          padding: EdgeInsets.all(sizewidth(context) * 0.05),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                "Contact Vendor",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: AppColor.primary,
+                  fontWeight: AppFontWeight.bold,
+                ),
+              ),
+              SizedBox(height: sizeHeight(context) * 0.02),
+              Text(
+                "Send a message to the vendor",
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: AppFontWeight.semiBold,
+                ),
+              ),
+              SizedBox(height: sizeHeight(context) * 0.02),
+              TextField(
+                decoration: InputDecoration(
+                  labelText: "write a message for vendor",
+                  labelStyle: TextStyle(fontSize: 12, color: AppColor.darkGray),
+                  border: OutlineInputBorder(),
+                ),
+                maxLines: 3,
+              ),
+              SizedBox(height: sizeHeight(context) * 0.02),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text(
+                  "Send",
+                  style: TextStyle(color: AppColor.white),
+                ),
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(
+                    vertical: sizeHeight(context) * 0.015,
+                    horizontal: sizewidth(context) * 0.1,
+                  ),
+                  backgroundColor: AppColor.primary,
+                ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }
